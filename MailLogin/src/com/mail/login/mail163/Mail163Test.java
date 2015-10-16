@@ -23,22 +23,22 @@ public class Mail163Test {
      */
     public static void main(String[] args) {
         HttpClientHelper hc = new HttpClientHelper(true);
-        HttpResult lr = hc.get(SESSION_INIT);// Ŀ���ǵõ� csrfToken ����
-        // ƴװ��¼��Ϣ
+        HttpResult lr = hc.get(SESSION_INIT);// 目的是得到 csrfToken 类似
+        // 拼装登录信息
         Map<String, String> data = new HashMap<String, String>();
         data.put("url2", "http://mail.163.com/errorpage/err_163.htm");
         //data.put("url2", "http://mail.126.com/errorpage/err_126.htm");
         data.put("savelogin", "0");
         data.put("username", "djh4230");
-        data.put("password", "djh423016djh");
-        lr = hc.post(LOGIN_URL, data,setHeader());// ִ�е�¼
+        data.put("password", "");
+        lr = hc.post(LOGIN_URL, data,setHeader());// 执行登录
         Document doc = Jsoup.parse(lr.getHtml());
         String sessionId=doc.select("script").html().split("=")[2];
         sessionId = sessionId.substring(0,sessionId.length()-2);
         data.clear();
         data.put("var", "<?xml version=\"1.0\"?><object><int name=\"fid\">1</int><boolean name=\"skipLockedFolders\">false</boolean><string name=\"order\">date</string><boolean name=\"desc\">true</boolean><int name=\"start\">0</int><int name=\"limit\">1000</int><boolean name=\"topFirst\">true</boolean><boolean name=\"returnTotal\">true</boolean><boolean name=\"returnTag\">true</boolean></object>");
         lr = hc.post(MessageFormat.format(MAIL_LIST_URL, sessionId),
-                data,setQueryHeader(sessionId));// ִ�е�¼
+                data,setQueryHeader(sessionId));// 执行登录
         System.out.println(lr.getHtml());
         try {
 			System.out.println(new String(lr.getResponse(),"UTF-8"));
