@@ -37,7 +37,7 @@ public class QQMailLogin {
 		HttpPost post=new HttpPost("https://mail.qq.com/cgi-bin/loginpage");
 		List<NameValuePair> nvps=new ArrayList<NameValuePair>();
 		nvps.add(new BasicNameValuePair("user", "915924289"));
-		nvps.add(new BasicNameValuePair("password", "djh423016#"));
+		nvps.add(new BasicNameValuePair("password", ""));
 		post.setEntity(new UrlEncodedFormEntity(nvps,HTTP.UTF_8));
 		HttpResponse response=httpClient.execute(post);
 		int code=response.getStatusLine().getStatusCode();
