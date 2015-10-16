@@ -50,7 +50,7 @@ public class Mail126Web {
 
 	private String USERNAME = "djh4230";
 
-	private String PASSWORD = "djh423016djh";
+	private String PASSWORD = "XXXXXXXXXXXX";
 
 	private static String LOGINURL = "http://reg.163.com/login.jsp?type=1&product=mail126&url=http://entry.mail.126.com/cgi/ntesdoor?hid%3D10010102%26lightweight%3D1%26language%3D0%26style%3D-1";
     //private static String LOGINURL="http://mail.126.com";
@@ -87,7 +87,7 @@ public class Mail126Web {
 
 		HttpPost authpost = new HttpPost(LOGINURL);
 
-		// ×¢ÒâÉÏÃæµÄµØÖ·£¡
+		// æ³¨æ„ä¸Šé¢çš„åœ°å€ï¼
 
 		authpost.addHeader("Content-Type",
 				"application/x-www-form-urlencoded;charset=utf-8");
@@ -115,7 +115,7 @@ public class Mail126Web {
 
 			if (response.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {
 
-				System.out.println("µÇÂ¼³É¹¦!");
+				System.out.println("ç™»å½•æˆåŠŸ!");
 
 			}
 			String content = EntityUtils.toString(response.getEntity(),HTTP.UTF_8);
@@ -140,7 +140,7 @@ public class Mail126Web {
 
 			if (response2.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {
 
-				System.out.println("µÇÂ¼³É¹¦!");
+				System.out.println("ç™»å½•æˆåŠŸ!");
 
 			}
 			System.out.println(EntityUtils.toString(response2.getEntity()));
@@ -208,7 +208,7 @@ public class Mail126Web {
 		httpPost.setHeader(
 				"User-Agent",
 				"Mozilla/5.0 (Macintosh; Intel Mac OS X 10.8; rv:28.0) Gecko/20100101 Firefox/28.0");
-		// Èç¹û²ÎÊıÊÇÖĞÎÄ£¬ĞèÒª½øĞĞ×ªÂë
+		// å¦‚æœå‚æ•°æ˜¯ä¸­æ–‡ï¼Œéœ€è¦è¿›è¡Œè½¬ç 
 		httpPost.setEntity(new UrlEncodedFormEntity(nvps, Consts.UTF_8));
 
 		CloseableHttpResponse response = null;
@@ -231,7 +231,7 @@ public class Mail126Web {
 			if (cookies.isEmpty()) {
 				System.out.println("None");
 			} else {
-				// ¶ÁÈ¡Cookie
+				// è¯»å–Cookie
 				for (int i = 0; i < cookies.size(); i++) {
 					if(cookies.get(i).getName().equals("SID")){
 						sid=cookies.get(i).getValue();
@@ -266,7 +266,7 @@ public class Mail126Web {
 
 			if (response2.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {
 
-				System.out.println("µÇÂ¼³É¹¦!");
+				System.out.println("ç™»å½•æˆåŠŸ!");
 
 			}
 			System.out.println(EntityUtils.toString(response2.getEntity()));
