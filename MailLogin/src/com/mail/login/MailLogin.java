@@ -44,7 +44,7 @@ import com.sun.mail.imap.IMAPMessage;
 
 public class MailLogin {
 	private static String USERNAME = "djh4230";
-	private static String PASSWORD = "djh423016djh";
+	private static String PASSWORD = "";
 	private String LOGINURL = "http://reg.163.com/login.jsp?type=1&product=mail126&url=http://entry.mail.126.com/cgi/ntesdoor?hid%3D10010102%26lightweight%3D1%26language%3D0%26style%3D-1";
 	private InputStream response = null;
 	private FileOutputStream fileoutput = null;
@@ -60,7 +60,7 @@ public class MailLogin {
 	//private static String protocol="imap";
 	//private static String protocol = "pop3";
 	private static String user = "915924289";
-	private static String pwd = "djh423016";
+	private static String pwd = "";
 	
 
 	public static void main(String[] args) throws MessagingException,
@@ -71,13 +71,13 @@ public class MailLogin {
 		/*
 		 * try { login(); } catch (HttpException e) { e.printStackTrace(); }
 		 */
-		/*String key = "ÔÂ¶ÈÕËµ¥";
+		/*String key = "æœˆåº¦è´¦å•";
 		
 		store=mailLogin.login126(pop3Server, protocol, user, pwd);
 		Folder folder = store.getFolder("INBOX");
 		folder.open(Folder.READ_ONLY);
 
-		// »ñµÃÓÊ¼ş¼ĞFolderÄÚµÄËùÓĞÓÊ¼şMessage¶ÔÏó
+		// è·å¾—é‚®ä»¶å¤¹Folderå†…çš„æ‰€æœ‰é‚®ä»¶Messageå¯¹è±¡
 		Message[] messages = folder.getMessages();
 		
 
@@ -103,8 +103,8 @@ public class MailLogin {
 
 			String from = (message.getFrom()[0]).toString();
 			from = MimeUtility.decodeText(from);
-			System.out.println("µÚ " + (i + 1) + "·âÓÊ¼şµÄÖ÷Ìâ£º" + subject);
-			System.out.println("µÚ " + (i + 1) + "·âÓÊ¼şµÄ·¢¼şÈËµØÖ·£º" + from);
+			System.out.println("ç¬¬ " + (i + 1) + "å°é‚®ä»¶çš„ä¸»é¢˜ï¼š" + subject);
+			System.out.println("ç¬¬ " + (i + 1) + "å°é‚®ä»¶çš„å‘ä»¶äººåœ°å€ï¼š" + from);
 
 			InputStreamReader isr = new InputStreamReader(
 					message.getInputStream(), "utf-8");
@@ -122,7 +122,7 @@ public class MailLogin {
 	}
 	public void loginQQ(String protocolServer, String protocol,
 			String user, String pwd) throws MessagingException {
-		// ´´½¨Ò»¸öÓĞ¾ßÌåÁ¬½ÓĞÅÏ¢µÄProperties¶ÔÏó
+		// åˆ›å»ºä¸€ä¸ªæœ‰å…·ä½“è¿æ¥ä¿¡æ¯çš„Propertieså¯¹è±¡
 		Security.addProvider(new com.sun.net.ssl.internal.ssl.Provider());
 		/*Properties props = new Properties();
 		props.setProperty("mail.store.protocol", protocol);
@@ -156,7 +156,7 @@ public class MailLogin {
 		  profile.add(FetchProfile.Item.ENVELOPE);  
 		  Message[] messages = inbox.getMessages();  
 		  inbox.fetch(messages, profile);  
-		  System.out.println("ÊÕ¼şÏäµÄÓÊ¼şÊı£º" + messages.length);  
+		  System.out.println("æ”¶ä»¶ç®±çš„é‚®ä»¶æ•°ï¼š" + messages.length);  
 		    
 		  IMAPMessage msg;  
 		  for (int i = 0; i < messages.length; i++) {  
@@ -194,22 +194,22 @@ public class MailLogin {
 
 	public Store login126(String protocolServer, String protocol,
 			String user, String pwd) throws MessagingException {
-		// ´´½¨Ò»¸öÓĞ¾ßÌåÁ¬½ÓĞÅÏ¢µÄProperties¶ÔÏó
+		// åˆ›å»ºä¸€ä¸ªæœ‰å…·ä½“è¿æ¥ä¿¡æ¯çš„Propertieså¯¹è±¡
 		Properties props = new Properties();
 		props.setProperty("mail.store.protocol", protocol);
 		props.setProperty("mail."+protocol+".host", protocolServer);
 		if(protocol.equals("imap")){
 			props.setProperty("mail.imap.port", "143"); 
 		}
-		// Ê¹ÓÃProperties¶ÔÏó»ñµÃSession¶ÔÏó
+		// ä½¿ç”¨Propertieså¯¹è±¡è·å¾—Sessionå¯¹è±¡
 		Session session = Session.getInstance(props);
 		session.setDebug(false);
 
-		// ÀûÓÃSession¶ÔÏó»ñµÃStore¶ÔÏó£¬²¢Á¬½Ópop3·şÎñÆ÷
+		// åˆ©ç”¨Sessionå¯¹è±¡è·å¾—Storeå¯¹è±¡ï¼Œå¹¶è¿æ¥pop3æœåŠ¡å™¨
 		Store store = session.getStore();
 		store.connect(protocolServer, user, pwd);
 
-		// »ñµÃÓÊÏäÄÚµÄÓÊ¼ş¼ĞFolder¶ÔÏó£¬ÒÔ"Ö»¶Á"´ò¿ª
+		// è·å¾—é‚®ç®±å†…çš„é‚®ä»¶å¤¹Folderå¯¹è±¡ï¼Œä»¥"åªè¯»"æ‰“å¼€
 
 		return store;
 	}
@@ -218,7 +218,7 @@ public class MailLogin {
 		HttpClient httpClient = new DefaultHttpClient();
 		HttpPost authpost = new HttpPost("http://www.126.com");
 		// PostMethod authpost = new PostMethod(LOGINURL);
-		// ×¢ÒâÉÏÃæµÄµØÖ·£¡
+		// æ³¨æ„ä¸Šé¢çš„åœ°å€ï¼
 		authpost.setHeader("Content-Type",
 				"application/x-www-form-urlencoded;charset=utf-8");
 		List<NameValuePair> nvps = new ArrayList<NameValuePair>();
@@ -238,9 +238,9 @@ public class MailLogin {
 		try {
 			if (status == HttpStatus.SC_OK) {
 
-				System.out.println("µÇÂ¼³É¹¦!");
+				System.out.println("ç™»å½•æˆåŠŸ!");
 			}
-			// »º³åÊäÈëÊä³ö.
+			// ç¼“å†²è¾“å…¥è¾“å‡º.
 			/*
 			 * response = authpost.getResponseBodyAsStream(); bufferinput = new
 			 * BufferedInputStream(response); fileoutput = new
@@ -251,7 +251,7 @@ public class MailLogin {
 			 * > 0) { bufferoutput.write(temp, 0, len); }
 			 */
 		} finally {
-			// ¹Ø±ÕÊäÈëÊä³öÁ÷.
+			// å…³é—­è¾“å…¥è¾“å‡ºæµ.
 			/*
 			 * if (response != null) response.close(); if (fileoutput != null)
 			 * fileoutput.close();
