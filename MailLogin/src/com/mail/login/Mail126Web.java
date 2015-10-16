@@ -67,7 +67,7 @@ public class Mail126Web {
 			e.printStackTrace(); } catch (IOException e) { e.printStackTrace(); }*/
 		HashMap<String, String> map = new HashMap<String, String>();
 		map.put("username", "djh4230");
-		map.put("password", "djh423016djh");
+		map.put("password", "");
 		//map.put("username", "djh4230@126.com");
 		map.put("url2", "http://mail.126.com/errorpage/error126.htm");
 		map.put("savelogin", "0");
